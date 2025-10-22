@@ -3,40 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Animation Project</title>
+  <title>Interactive Web Experience </title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>✨ Bringing Web Pages to Life ✨</h1>
+    <h1>✨ Interactive Web Experience ✨</h1>
+    <p>Bringing your webpage to life with CSS3 & JavaScript</p>
   </header>
 
   <main>
-    <!-- Animated Box -->
-    <section class="animation-section">
+    <!-- Animated Box Section -->
+    <section class="card">
+      <h2>🎬 Animate the Box</h2>
       <div id="box" class="box"></div>
-      <button id="animateBtn">Animate Box</button>
+      <button id="animateBtn">Click to Animate</button>
     </section>
 
-    <!-- Color Calculator Example (Functions with Parameters & Return Values) -->
-    <section class="function-section">
-      <h2>🎨 Change Background Color</h2>
-      <input type="text" id="colorInput" placeholder="Enter a color (e.g. red, #00ff00)" />
-      <button id="colorBtn">Apply Color</button>
+    <!-- Color Changer Section -->
+    <section class="card">
+      <h2>🎨 Background Color Changer</h2>
+      <p>Type a color name or hex code (like <b>red</b> or <b>#00ffcc</b>)</p>
+      <input type="text" id="colorInput" placeholder="Enter color..." />
+      <div id="colorPreview" class="color-preview"></div>
+      <button id="colorBtn">Apply Background</button>
     </section>
 
-    <!-- Popup Modal Example -->
-    <section class="modal-section">
+    <!-- Modal Section -->
+    <section class="card">
+      <h2>💬 Modal Popup</h2>
       <button id="showModal">Show Modal</button>
 
       <div id="modal" class="modal">
         <div class="modal-content">
-          <p>🌟 Hello! I’m an animated modal.</p>
+          <h3>🌟 Hello there!</h3>
+          <p>This modal appears smoothly with CSS animations!</p>
           <button id="closeModal">Close</button>
         </div>
       </div>
     </section>
   </main>
+
+  <footer>
+    <p>Created by Gloria using CSS3 and JavaScript | © 2025</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>

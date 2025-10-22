@@ -1,57 +1,67 @@
-// -------------------------
-// Part 2: Functions, Scope, Parameters & Return Values
-// -------------------------
+// =====================================================
+// Part 2: Functions, Parameters, and Return Values
+// =====================================================
 
 // Global variable
-let defaultColor = "#4a90e2";
+let defaultColor = "#0ba29d";
 
-// Function to update background color (uses parameter & return)
+/**
+ * Function to change background color
+ * @param {string} color
+ * @returns {string} message
+ */
 function changeBackgroundColor(color) {
-  document.body.style.backgroundColor = color;
-  return `Background color changed to ${color}`;
+  document.body.style.background = color;
+  return `✅ Background changed to ${color}`;
 }
 
-// Event listener for color button
-document.getElementById("colorBtn").addEventListener("click", function() {
-  const colorInput = document.getElementById("colorInput").value.trim();
+/**
+ * Function to preview color live
+ * @param {string} color
+ */
+function previewColor(color) {
+  const preview = document.getElementById("colorPreview");
+  preview.style.backgroundColor = color || "white";
+}
 
-  // Local scope variable
-  let message;
+// =====================================================
+// DOM Interactions & Events
+// =====================================================
 
-  if (colorInput) {
-    message = changeBackgroundColor(colorInput);
-  } else {
-    message = changeBackgroundColor(defaultColor);
-  }
-
-  alert(message);
-});
-
-// -------------------------
-// Part 3: Combining CSS + JS
-// -------------------------
-
-// Animate box when button is clicked
+// Animate the box
 const box = document.getElementById("box");
 const animateBtn = document.getElementById("animateBtn");
 
 animateBtn.addEventListener("click", () => {
-  box.classList.toggle("animate");
+  box.classList.toggle("animate"); // Works now
 });
 
-// -------------------------
-// Modal logic (show/hide with CSS animation)
-// -------------------------
-const modal = document.getElementById("modal");
-const showModalBtn = document.getElementById("showModal");
-const closeModalBtn = document.getElementById("closeModal");
+// Color changer with live preview
+const colorInput = document.getElementById("colorInput");
+const colorBtn = document.getElementById("colorBtn");
 
-showModalBtn.addEventListener("click", () => {
+colorInput.addEventListener("input", () => {
+  previewColor(colorInput.value.trim());
+});
+
+colorBtn.addEventListener("click", () => {
+  const color = colorInput.value.trim() || defaultColor;
+  const message = changeBackgroundColor(color);
+  alert(message);
+});
+
+// =====================================================
+// Modal Popup
+// =====================================================
+const modal = document.getElementById("modal");
+const showModal = document.getElementById("showModal");
+const closeModal = document.getElementById("closeModal");
+
+showModal.addEventListener("click", () => {
   modal.style.display = "flex";
 });
 
-closeModalBtn.addEventListener("click", () => {
-  // Add fade-out animation before hiding
+closeModal.addEventListener("click", () => {
   modal.classList.add("fade-out");
 
   setTimeout(() => {
